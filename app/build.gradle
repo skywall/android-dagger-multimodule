@@ -5,6 +5,9 @@ plugins {
     id 'kotlin-kapt'
 }
 
+apply from: '../core_dependencies.gradle'
+apply from: '../test_dependencies.gradle'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -32,28 +35,16 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures {
-        compose true
+    packagingOptions {
+        pickFirst 'META-INF/kotlinx-io.kotlin_module'
+        pickFirst 'META-INF/atomicfu.kotlin_module'
+        pickFirst 'META-INF/kotlinx-coroutines-io.kotlin_module'
+        pickFirst 'kotlin/reflect/reflect.kotlin_builtins'
     }
 }
 
 dependencies {
-    implementation(":core")
+    implementation project(":core")
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.2.0'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.google.android.material:material:1.1.0'
-    implementation 'androidx.ui:ui-framework:0.1.0-dev03'
-    implementation 'androidx.ui:ui-layout:0.1.0-dev03'
-    implementation 'androidx.ui:ui-material:0.1.0-dev03'
-    implementation 'androidx.ui:ui-tooling:0.1.0-dev03'
-
-    api 'com.google.dagger:dagger:2.27'
     kapt 'com.google.dagger:dagger-compiler:2.27'
-
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
