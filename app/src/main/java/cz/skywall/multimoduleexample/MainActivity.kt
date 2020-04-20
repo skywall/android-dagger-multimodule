@@ -11,8 +11,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         (main_navigation_fragment as? NavHostFragment)?.navController?.apply {
-            val navGraph = navInflater.inflate(R.navigation.nav_graph).apply {
-//                startDestination = R.id.
+            val navGraph = navInflater.inflate(R.navigation.main_nav_graph).apply {
+                startDestination = R.id.home_navigation_graph
             }
 
             graph = navGraph

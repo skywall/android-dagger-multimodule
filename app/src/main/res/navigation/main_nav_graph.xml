@@ -7,11 +7,11 @@
     <fragment
         android:id="@+id/splashFragment"
         android:name="cz.skywall.multimoduleexample.SplashFragment"
-        android:label="fragment_home" />
+        android:label="Splash fragment" />
 
-<!--    <include-dynamic-->
-<!--        android:id="@+id/home_navigation_graph"-->
-<!--        app:graphPackage="@string/module_id_home"-->
-<!--        app:graphResName="home_navigation_graph"-->
-<!--        app:moduleName="home"/>-->
+    <include-dynamic
+        android:id="@+id/home_navigation_graph"
+        app:graphPackage="@string/module_id_home"
+        app:graphResName="home_nav_graph"
+        app:moduleName="home"/>
 </navigation>

@@ -1,0 +1,14 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    package="cz.skywall.multimoduleexample.home">
+
+    <dist:module
+        dist:instant="false"
+        dist:onDemand="false"
+        dist:title="Home Fragment">
+
+        <dist:fusing dist:include="true"/>
+
+    </dist:module>
+
+</manifest>

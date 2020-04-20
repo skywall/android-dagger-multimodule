@@ -1,3 +1,4 @@
+include ':home'
 include ':network'
 include ':database'
 include ':base'
