@@ -13,7 +13,3 @@ interface HomeFragmentComponent {
 
 @Module
 class HomeFragmentModule
-
-
-
-

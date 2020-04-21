@@ -10,7 +10,9 @@ import cz.skywall.multimoduleexample.network.ApiService
 import cz.skywall.multimoduleexample.network.NetworkModule
 import dagger.BindsInstance
 import dagger.Component
+import javax.inject.Singleton
 
+@Singleton
 @Component(
     modules = [
         CoreModule::class,
