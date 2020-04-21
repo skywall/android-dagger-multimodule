@@ -1,15 +1,15 @@
 package cz.skywall.multimoduleexample.home.ui.home
 
-import cz.skywall.multimoduleexample.core.injection.CoreSubcomponent
+import cz.skywall.multimoduleexample.injection.ApplicationComponent
 import dagger.Component
 import dagger.Module
 
-@Component(modules = [HomeFragmentModule::class], dependencies = [CoreSubcomponent::class])
+@Component(modules = [HomeFragmentModule::class], dependencies = [ApplicationComponent::class])
 interface HomeFragmentComponent {
 
     @Component.Factory
     interface Factory {
-        fun create(module: HomeFragmentModule, coreSubcomponent: CoreSubcomponent): HomeFragmentComponent
+        fun create(module: HomeFragmentModule, component: ApplicationComponent): HomeFragmentComponent
     }
 
     fun inject(homeFragment: HomeFragment)
