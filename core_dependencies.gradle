@@ -16,4 +16,5 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0-alpha05'
 
     api 'com.google.dagger:dagger:2.27'
+    api "com.google.dagger:dagger-android-support:2.27"
 }

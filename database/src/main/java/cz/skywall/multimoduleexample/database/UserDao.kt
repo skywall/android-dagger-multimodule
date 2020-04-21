@@ -1,6 +1,8 @@
 package cz.skywall.multimoduleexample.database
 
-class UserDao {
+import android.app.Application
+
+class UserDao(application: Application) {
 
     var userDB : UserDB? = null
 
