@@ -32,4 +32,6 @@ interface ApplicationComponent {
     fun apiService(): ApiService
 
     fun sharedPreference(): SharedPreferences
+
+    fun application(): Application
 }

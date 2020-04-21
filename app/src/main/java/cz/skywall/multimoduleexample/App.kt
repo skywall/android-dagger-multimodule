@@ -15,12 +15,17 @@ class App : Application() {
     @Inject lateinit var apiService: ApiService
     @Inject lateinit var userDao: UserDao
 
+    companion object {
+        lateinit var INSTANCE : App
+    }
+
     val applicationComponent by lazy {
         DaggerApplicationComponent.factory().create(this)
     }
 
     override fun onCreate() {
         super.onCreate()
+        INSTANCE = this
 
         applicationComponent.inject(this)
 
