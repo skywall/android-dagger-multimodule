@@ -9,7 +9,6 @@ import android.widget.TextView
 import cz.skywall.multimoduleexample.home.base.BaseFragment
 import cz.skywall.multimoduleexample.home.data.repository.DummyRepository
 import cz.skywall.multimoduleexample.home.data.repository.DummyRepository2
-import cz.skywall.multimoduleexample.home.injection.HomeComponentHolder
 import cz.skywall.multimoduleexample.network.ApiService
 import javax.inject.Inject
 
@@ -32,13 +31,12 @@ class HomeFragment : BaseFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        inject()
+    ): View {
         return TextView(requireActivity()).apply { text = "Home Fragment" }
     }
 
-    private fun inject() {
-        HomeComponentHolder.homeComponent.plus(HomeFragmentModule()).inject(this)
+    override fun inject() {
+        homeComponent.plus(HomeFragmentModule()).inject(this)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
