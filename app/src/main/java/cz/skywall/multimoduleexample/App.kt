@@ -11,12 +11,15 @@ import javax.inject.Inject
 
 class App : Application() {
 
-    @Inject lateinit var sharedPreferences: SharedPreferences
-    @Inject lateinit var apiService: ApiService
-    @Inject lateinit var userDao: UserDao
+    @Inject
+    lateinit var sharedPreferences: SharedPreferences
+    @Inject
+    lateinit var apiService: ApiService
+    @Inject
+    lateinit var userDao: UserDao
 
     companion object {
-        lateinit var INSTANCE : App
+        lateinit var INSTANCE: App
     }
 
     val applicationComponent by lazy {
