@@ -9,14 +9,14 @@ import cz.skywall.multimoduleexample.home.injection.HomeComponent
 
 abstract class BaseFragment : Fragment() {
 
-    private companion object : SingletonHolder<HomeComponent, Context>({ context ->
+    private object ModuleComponent : SingletonHolder<HomeComponent, Context>({ context ->
         DaggerHomeComponent
             .factory()
             .create((context.applicationContext as App).applicationComponent)
     })
 
     val homeComponent: HomeComponent
-        get() = BaseFragment.getInstance(requireContext())
+        get() = ModuleComponent.getInstance(requireContext())
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
