@@ -2,11 +2,7 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
-    id 'kotlin-kapt'
 }
-
-apply from: '../core_dependencies.gradle'
-apply from: '../test_dependencies.gradle'
 
 android {
     compileSdkVersion 29
@@ -38,9 +34,5 @@ android {
 }
 
 dependencies {
-    api project(":database")
-    api project(":network")
-    api project(":common")
-
-    kapt 'com.google.dagger:dagger-compiler:2.27'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
