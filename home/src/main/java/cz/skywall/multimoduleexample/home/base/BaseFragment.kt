@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.fragment.app.Fragment
 import cz.skywall.multimoduleexample.App
 import cz.skywall.multimoduleexample.common.SingletonHolder
+import cz.skywall.multimoduleexample.core.injection.CoreComponentHolder
 import cz.skywall.multimoduleexample.home.injection.DaggerHomeComponent
 import cz.skywall.multimoduleexample.home.injection.HomeComponent
 
@@ -12,7 +13,7 @@ abstract class BaseFragment : Fragment() {
     private object ModuleComponent : SingletonHolder<HomeComponent, Context>({ context ->
         DaggerHomeComponent
             .factory()
-            .create((context.applicationContext as App).applicationComponent)
+            .create(CoreComponentHolder.getInstance(context.applicationContext as App))
     })
 
     val homeComponent: HomeComponent

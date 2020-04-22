@@ -1,10 +1,10 @@
 package cz.skywall.multimoduleexample.home.injection
 
 import android.app.Application
+import cz.skywall.multimoduleexample.core.injection.CoreComponent
 import cz.skywall.multimoduleexample.home.data.repository.DummyRepository2
 import cz.skywall.multimoduleexample.home.ui.home.HomeFragmentComponent
 import cz.skywall.multimoduleexample.home.ui.home.HomeFragmentModule
-import cz.skywall.multimoduleexample.injection.ApplicationComponent
 import dagger.Component
 import dagger.Module
 import dagger.Provides
@@ -15,14 +15,14 @@ import dagger.Provides
         HomeModule::class
     ],
     dependencies = [
-        ApplicationComponent::class
+        CoreComponent::class
     ]
 )
 interface HomeComponent {
 
     @Component.Factory
     interface Factory {
-        fun create(applicationComponent: ApplicationComponent): HomeComponent
+        fun create(coreComponent: CoreComponent): HomeComponent
     }
 
     fun plus(module: HomeFragmentModule): HomeFragmentComponent

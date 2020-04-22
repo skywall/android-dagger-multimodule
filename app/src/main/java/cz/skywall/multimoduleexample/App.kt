@@ -2,6 +2,7 @@ package cz.skywall.multimoduleexample
 
 import android.app.Application
 import android.content.SharedPreferences
+import cz.skywall.multimoduleexample.core.injection.CoreComponentHolder
 import cz.skywall.multimoduleexample.core.mapper.toDB
 import cz.skywall.multimoduleexample.database.UserDao
 import cz.skywall.multimoduleexample.injection.DaggerApplicationComponent
@@ -18,8 +19,8 @@ class App : Application() {
     @Inject
     lateinit var userDao: UserDao
 
-    val applicationComponent by lazy {
-        DaggerApplicationComponent.factory().create(this)
+    private val applicationComponent by lazy {
+        DaggerApplicationComponent.factory().create(this, CoreComponentHolder.getInstance(this))
     }
 
     override fun onCreate() {
