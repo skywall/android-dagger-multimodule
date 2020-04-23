@@ -40,6 +40,7 @@ android {
 dependencies {
     api project(":database")
     api project(":network")
+    api project(":common")
 
     kapt 'com.google.dagger:dagger-compiler:2.27'
 }

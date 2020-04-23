@@ -1,23 +1,22 @@
 package cz.skywall.multimoduleexample.injection
 
+import android.app.Application
 import cz.skywall.multimoduleexample.App
-import cz.skywall.multimoduleexample.core.injection.CoreSubcomponent
+import cz.skywall.multimoduleexample.core.injection.CoreComponent
 import dagger.BindsInstance
 import dagger.Component
 
+@ApplicationScope
 @Component(
-    modules = [
-        ApplicationModule::class
-    ],
     dependencies = [
-        CoreSubcomponent::class
+        CoreComponent::class
     ]
 )
-interface ApplicationComponent {
+internal interface ApplicationComponent {
 
     @Component.Factory
     interface Factory {
-        fun create(@BindsInstance app: App, coreSubcomponent: CoreSubcomponent): ApplicationComponent
+        fun create(@BindsInstance application: Application, coreComponent: CoreComponent): ApplicationComponent
     }
 
     fun inject(app: App)
