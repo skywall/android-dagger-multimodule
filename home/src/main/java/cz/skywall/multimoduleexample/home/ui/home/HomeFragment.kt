@@ -18,23 +18,16 @@ import cz.skywall.multimoduleexample.network.ApiService
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 
-class HomeFragment : BaseFragment() {
+class HomeFragment : BaseFragment(), HomeView {
 
-    @Inject
-    lateinit var sharedPreferences: SharedPreferences
-
-    @Inject
-    lateinit var apiService: ApiService
-
-    @Inject
-    lateinit var dummyRepository: DummyRepository
-
-    @Inject
-    lateinit var dummyRepository2: DummyRepository2
-
+    @Inject lateinit var homeAdapter: HomeAdapter
+    @Inject lateinit var sharedPreferences: SharedPreferences
+    @Inject lateinit var apiService: ApiService
+    @Inject lateinit var dummyRepository: DummyRepository
+    @Inject lateinit var dummyRepository2: DummyRepository2
 
     override fun inject() {
-        homeComponent.plus(HomeFragmentModule()).inject(this)
+        homeComponent.plus(HomeFragmentModule(this)).inject(this)
     }
 
     override fun onCreateView(
@@ -50,6 +43,7 @@ class HomeFragment : BaseFragment() {
         sharedPreferences.all
         dummyRepository.toString()
         dummyRepository2.toString()
+        homeAdapter.toString()
 
         requireActivity().startService(Intent(requireActivity(), DummyService::class.java))
 
