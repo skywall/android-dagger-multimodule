@@ -40,12 +40,12 @@ class HomeFragment : BaseFragment(), HomeView {
 
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        requireActivity().startService(Intent(requireActivity(), DummyService::class.java))
+
         sharedPreferences.all
         dummyRepository.toString()
         dummyRepository2.toString()
         homeAdapter.toString()
-
-        requireActivity().startService(Intent(requireActivity(), DummyService::class.java))
 
         combined_text.text =
             """Combined: 

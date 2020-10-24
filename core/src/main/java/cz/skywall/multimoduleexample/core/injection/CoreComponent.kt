@@ -2,8 +2,8 @@ package cz.skywall.multimoduleexample.core.injection
 
 import android.app.Application
 import android.content.SharedPreferences
-import cz.skywall.multimoduleexample.database.DatabaseContract
-import cz.skywall.multimoduleexample.database.DatabaseModule
+import cz.skywall.multimoduleexample.database.injection.DatabaseContract
+import cz.skywall.multimoduleexample.database.injection.DatabaseModule
 import cz.skywall.multimoduleexample.network.injection.NetworkContract
 import cz.skywall.multimoduleexample.network.injection.NetworkModule
 import dagger.BindsInstance
