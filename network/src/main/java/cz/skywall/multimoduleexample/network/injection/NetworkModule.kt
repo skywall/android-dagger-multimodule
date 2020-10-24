@@ -1,5 +1,6 @@
-package cz.skywall.multimoduleexample.network
+package cz.skywall.multimoduleexample.network.injection
 
+import cz.skywall.multimoduleexample.network.ApiService
 import dagger.Module
 import dagger.Provides
 

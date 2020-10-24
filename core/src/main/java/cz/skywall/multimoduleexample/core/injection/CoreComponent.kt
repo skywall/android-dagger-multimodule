@@ -4,8 +4,8 @@ import android.app.Application
 import android.content.SharedPreferences
 import cz.skywall.multimoduleexample.database.DatabaseContract
 import cz.skywall.multimoduleexample.database.DatabaseModule
-import cz.skywall.multimoduleexample.network.NetworkContract
-import cz.skywall.multimoduleexample.network.NetworkModule
+import cz.skywall.multimoduleexample.network.injection.NetworkContract
+import cz.skywall.multimoduleexample.network.injection.NetworkModule
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
