@@ -33,5 +33,5 @@ android {
 dependencies {
     implementation project(":core")
 
-    kapt 'com.google.dagger:dagger-compiler:2.27'
+    kapt 'com.google.dagger:dagger-compiler:2.29.1'
 }
