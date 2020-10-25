@@ -2,8 +2,7 @@ package cz.skywall.multimoduleexample.common
 
 open class SingletonHolder<out T, in A>(private val constructor: (A) -> T) {
 
-    @Volatile
-    private var instance: T? = null
+    @Volatile private var instance: T? = null
 
     fun getInstance(arg: A): T {
         return when {

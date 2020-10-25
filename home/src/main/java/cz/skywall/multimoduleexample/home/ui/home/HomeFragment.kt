@@ -13,7 +13,7 @@ import cz.skywall.multimoduleexample.common.R as CR
 import cz.skywall.multimoduleexample.R as AR
 import cz.skywall.multimoduleexample.home.base.BaseFragment
 import cz.skywall.multimoduleexample.home.data.repository.DummyRepository
-import cz.skywall.multimoduleexample.home.data.repository.DummyRepository2
+import cz.skywall.multimoduleexample.home.data.repository.HomeDummyRepository
 import cz.skywall.multimoduleexample.network.ApiService
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
@@ -24,7 +24,7 @@ class HomeFragment : BaseFragment(), HomeView {
     @Inject lateinit var sharedPreferences: SharedPreferences
     @Inject lateinit var apiService: ApiService
     @Inject lateinit var dummyRepository: DummyRepository
-    @Inject lateinit var dummyRepository2: DummyRepository2
+    @Inject lateinit var homeDummyRepository: HomeDummyRepository
 
     override fun inject() {
         homeComponent.plus(HomeFragmentModule(this)).inject(this)
@@ -42,10 +42,12 @@ class HomeFragment : BaseFragment(), HomeView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         requireActivity().startService(Intent(requireActivity(), DummyService::class.java))
 
+        // Check if everything injected properly by accessing instances.
         sharedPreferences.all
         dummyRepository.toString()
-        dummyRepository2.toString()
+        homeDummyRepository.toString()
         homeAdapter.toString()
+        apiService.toString()
 
         combined_text.text =
             """Combined: 

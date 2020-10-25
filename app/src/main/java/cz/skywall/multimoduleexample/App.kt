@@ -26,7 +26,7 @@ class App : Application() {
 
         applicationComponent.inject(this)
 
-        // check if everything injected properly
+        // Just a check if everything injected properly. Do not use runBlocking { } on a main thread!
         sharedPreferences.all
         runBlocking {
             val user = apiService.getUser()

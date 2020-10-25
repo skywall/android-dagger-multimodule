@@ -2,7 +2,7 @@ package cz.skywall.multimoduleexample.home.injection
 
 import android.app.Application
 import cz.skywall.multimoduleexample.core.injection.CoreComponent
-import cz.skywall.multimoduleexample.home.data.repository.DummyRepository2
+import cz.skywall.multimoduleexample.home.data.repository.HomeDummyRepository
 import cz.skywall.multimoduleexample.home.ui.home.HomeFragmentComponent
 import cz.skywall.multimoduleexample.home.ui.home.HomeFragmentModule
 import dagger.Component
@@ -30,8 +30,9 @@ interface HomeComponent {
 
 @Module
 class HomeModule {
+
     @Provides
-    fun dummyRepository2(application: Application): DummyRepository2 {
-        return DummyRepository2()
+    fun homeDummyRepository(application: Application): HomeDummyRepository {
+        return HomeDummyRepository()
     }
 }
